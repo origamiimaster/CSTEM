@@ -1,0 +1,27 @@
+/* File: move.ch
+Move joints relative to the current positions. */
+#include <linkbot.h>
+CLinkbotI robot1, robot2;
+const double pi = 4.0 * atan(1.0);
+int Distance = 13;
+double WheelSize1 = 3.5 * pi; //Replace "X" with diamiter of wheel
+double RotationPerInch1 = 1/WheelSize1; 
+double Inches1 = Distance * RotationPerInch1 * 360; //Replace "X" with how many inches you want it to move
+double WheelSpeed1 = (Distance / Inches1) *1000;
+
+robot1.setJointSpeeds(45, NaN, 45);
+robot1.moveJointNB(JOINT3, 45);
+robot1.moveWait();
+robot1.moveNB(-Inches1, NaN, Inches1);
+
+robot2.setJointSpeed(10, 1.75);
+
+robot2.move( -136, NaN, 0);
+
+robot2.setSpeed( 45, 1.75);
+
+robot2.driveDistance(-30,1.75);
+
+
+//printf("%lf\n", WheelSpeed1);
+//printf("%lf", WheelSpeed2);

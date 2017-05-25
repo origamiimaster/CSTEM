@@ -1,0 +1,8 @@
+#include <linkbot.h>
+CLinkbotI wheels1, wheels2;
+CLinkbotL arm;
+wheels1.driveDistanceNB(2.5, 2);
+wheels2.driveDistance(-2.5, 2);
+arm.moveJoint(JOINT2,8);
+wheels1.driveDistanceNB(5,2);
+wheels2.driveDistance(-5,2);
